@@ -1,0 +1,22 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "service api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Altyx",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "fastify": "^0.35.5",
+    "jsonwebtoken": "^8.1.0",
+    "mongoose": "^5.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
+  }
+}
