@@ -1,13 +1,14 @@
 import  React  from "react";
 import { Link } from "react-router-dom";
+import './user.css';
 
 const login = () => {
     return (
-        <div>
+        <div className="user">
             <input type='text' />
             <input type='password' />
-
-            <Link to='/signin'>Inscription</Link>
+            <input type="submit" className="submit" value="connexion" />
+            <p>Pas de compte ? <Link to='/signin'>Par ici.</Link></p>
         </div>
     );
 };

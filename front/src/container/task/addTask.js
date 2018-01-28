@@ -1,40 +1,47 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './task.css';
 
 class addTask extends Component {
     constructor(props) {
         super(props);
-        this.state = {value: ''};
-    
+        this.state = {
+            title: '', 
+            content: ''
+        };
         this.createTaskHandler = this.createTaskHandler.bind(this);
     }
     
 
     changeHandler = (event) => {
-        this.setState({value: event.target.value});
+        this.setState({
+            title: event.target.value,
+            content: event.target.value
+        });
     }
 
     createTaskHandler = (event) => {
-        //request here
-        axios.post('http://localhost:4000/tasks', {
-            title: this.state.value
-        })
+        const task = {
+            title: this.state.title,
+            content: this.state.content,
+        };
+        axios.post('/tasks', task)
         .then((response) => {
             console.log(response);
+            document.getElementById("form").reset();
         })
         .catch((error) => {
             console.log(error)
         });
-
-        this.setState({value: ''});
         event.preventDefault();
     }
 
     render() {
         return (
-            <form onSubmit={this.createTaskHandler}>
-                <input type="text" value={this.state.value} onChange={this.changeHandler} placeholder="Tâche" />
-                <input type='submit' value="ajouer"/>
+            <form className="add-task" onSubmit={this.createTaskHandler} id="form">
+                <input type="text" title={this.state.title} onChange={this.changeHandler} placeholder="Tâche" />
+                <textarea content={this.state.content} onChange={this.changeHandler} ></textarea>
+                <input className="submit" type='submit' value="ajouer"/>
             </form>
         );
     }

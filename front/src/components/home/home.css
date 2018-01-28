@@ -1,0 +1,13 @@
+.home {
+    color: aliceblue;
+    margin: 0px 20px;
+}
+
+.home > p > a, .home > p > a:visited {
+    text-decoration: dashed;
+    color: aliceblue;
+}
+
+.home > p > a:hover {
+    color: #e9204f;
+}

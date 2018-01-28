@@ -5,6 +5,7 @@ import addTask from '../container/task/addTask';
 import Login from '../components/user/login';
 import Home from '../components/home/home';
 import Tasks from '../container/task/tasks';
+import Signin from '../components/user/signin';
 
 class route extends Component {
     render() {
@@ -14,6 +15,7 @@ class route extends Component {
                 <Route path='/login' component={Login} />
                 <Route path='/add' component={addTask} />
                 <Route path='/tasks' component={Tasks} />
+                <Route path='/signin' component={Signin} />
             </div>
         );
     }

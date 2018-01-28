@@ -8,7 +8,7 @@ fastify.use(cors());
 
 fastify.get('/tasks', async (req, res) => {
   Task.find().then((todos) => {
-    res.send(todos);
+    res.code(200).send(todos);
   })
     .catch(e => res.send('An error occured', e));
 });
@@ -16,12 +16,13 @@ fastify.get('/tasks', async (req, res) => {
 fastify.post('/tasks', async (req, res) => {
   const task = new Task({
     title: req.body.title,
+    content: req.body.content,
   });
 
   task.save().then((response) => {
     res.code(201).send(response);
-  }, (e) => {
-    console.log(e);
+  }, () => {
+    res.code(500).send({ error: 'an error occured' });
   });
 });
 

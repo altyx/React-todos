@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
+import './menu.css';
 
 const menu = (props) => {
     return (
-        <div>
+        <div className="menu">
             <Link to='/'>Accueil</Link>
             <Link to='/login'>Login</Link>
             <Link to='/tasks'>Mes tâches</Link>

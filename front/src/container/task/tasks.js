@@ -12,7 +12,7 @@ class Tasks extends Component {
 
     componentDidMount = () => {
         
-        axios.get('http://localhost:4000/tasks')
+        axios.get('/tasks')
             .then((response) => {                
                 this.setState({ tasks: response.data });
             })
@@ -24,10 +24,10 @@ class Tasks extends Component {
     render() {
         
         let tasks = (
-            <div>
+            <div className="container">
                {
                     this.state.tasks.map(task => {
-                        return <Task title={task.title} key={task._id} />
+                        return <Task title={task.title} content={task.content} key={task._id} />
                     }) 
                 }
             </div>
